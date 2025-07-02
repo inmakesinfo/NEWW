@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+     
+ body{
+    background-color:white;
+ }
+ h1{text-align: center;}
+   input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+       .container {
+      width: 1000px;
+      margin: 50px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+     input[type="text"],
+    
+    input[type="number"]
+     {
+      width: 300%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    img{
+        margin-left: 800px;
+        
+    }
+      
+      
+
+     .form,.form1,.form2,.form3,.form5,.form4 {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      width: 300px;
+      
+     }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STUDENT REGISTRATION</title>
+
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const fname = form.elements["first_name"].value.trim();
+      const lname = form.elements["last_name"].value.trim();
+      const dob = form.elements["dob"].value;
+      const gender = form.querySelector('input[name="gender"]:checked');
+      const bloodGroup = form.elements["blood_group"].value.trim();
+      const email = form.elements["email"].value.trim();
+      const mobile = form.elements["father_mob"].value.trim();
+
+      if (fname === "" || lname === "") {
+        alert("First and Last Name cannot be empty.");
+        return false;
+      }
+
+      if (!dob) {
+        alert("Date of Birth is required.");
+        return false;
+      }
+
+      if (!gender) {
+        alert("Please select gender.");
+        return false;
+      }
+
+      if (!email.includes("@") || !email.includes(".")) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      if (bloodGroup === "") {
+        alert("Please enter blood group.");
+        return false;
+      }
+
+      if (!/^\d{10}$/.test(mobile)) {
+        alert("Father's Mobile must be 10 digits.");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      form.submit();
+    }
+
+    window.onload = function () {
+      document.querySelector("form").addEventListener("submit", validateForm);
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1><b>STUDENT REGISTRATION</b></h1>
+    <img src="download (1).jpeg" alt="Student Registration Image">
+
+    <form>
+      <div class="form1">
+        <h2>BASIC INFORMATION</h2>
+        FIRST NAME: <input type="text" name="first_name"><br><br>
+        MIDDLE NAME: <input type="text" name="middle_name"><br><br>
+        LAST NAME: <input type="text" name="last_name"><br><br>
+        DATE OF BIRTH: <input type="date" name="dob"><br><br>
+        SELECT GENDER:
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="others"> Others<br><br>
+        BLOOD GROUP: <input type="text" name="blood_group"><br><br>
+        NATIONALITY: <input type="text" name="nationality"><br><br>
+        RELIGION:
+        <input type="radio" name="category" value="general"> General
+        <input type="radio" name="category" value="obc"> OBC
+        <input type="radio" name="category" value="sc"> SC
+        <input type="radio" name="category" value="st"> ST
+        <input type="radio" name="category" value="others"> Others<br>
+      </div>
+
+      <div class="form1">
+        <h2>CONTACT DETAILS</h2>
+        ADDRESS: <input type="text" name="address"><br><br>
+        CITY: <input type="text" name="city"><br><br>
+        STATE: <input type="text" name="state"><br><br>
+        PIN: <input type="number" name="pin"><br><br>
+        EMAIL: <input type="text" name="email"><br><br>
+        MOBILE: <input type="number" name="mobile"><br><br>
+      </div>
+
+      <div class="form2">
+        <h2>PARENT DETAILS</h2>
+        FATHER'S NAME: <input type="text" name="father_name"><br><br>
+        FATHER'S OCCUPATION: <input type="text" name="father_occupation"><br><br>
+        FATHER'S MOBILE: <input type="text" name="father_mob"><br><br>
+        MOTHER'S NAME: <input type="text" name="mother_name"><br><br>
+        MOTHER'S OCCUPATION: <input type="text" name="mother_occupation"><br><br>
+        MOTHER'S MOBILE: <input type="number" name="mother_mob"><br><br>
+        GUARDIAN NAME: <input type="text" name="guardian_name"><br><br>
+        GUARDIAN CONTACT NO: <input type="number" name="guardian_contact"><br><br>
+      </div>
+
+      <div class="form3">
+        <h2>ACADEMIC DETAILS</h2>
+        PREVIOUS SCHOOL NAME: <input type="text" name="prev_school"><br><br>
+        PREVIOUS CLASS: <input type="text" name="prev_class"><br><br>
+        TRANSFER CERTIFICATE NO: <input type="number" name="tc_number"><br><br>
+        LAST CLASS % / MARKS: <input type="number" name="last_percent"><br><br>
+        MEDIUM OF INSTRUCTION: <input type="text" name="medium"><br><br>
+      </div>
+
+      <div class="form4">
+        <h2>ADMISSION DETAILS</h2>
+        ADMISSION FOR CLASS:
+        <input type="radio" name="class" value="grade 1"> Grade 1
+        <input type="radio" name="class" value="grade 2"> Grade 2<br><br>
+        ACADEMIC YEAR: <input type="number" name="academic_year"><br><br>
+        STREAM:
+        <input type="radio" name="stream" value="science"> Science
+        <input type="radio" name="stream" value="commerce"> Commerce
+        <input type="radio" name="stream" value="arts"> Arts<br><br>
+      </div>
+
+      <div class="form5">
+        <h2>OTHER DETAILS</h2>
+        AADHAR NO: <input type="number" name="aadhar"><br><br>
+        LANGUAGES KNOWN: <input type="text" name="languages"><br><br>
+        TRANSPORTATION REQUIRED?:
+        <input type="radio" name="transport" value="yes"> Yes
+        <input type="radio" name="transport" value="no"> No<br><br>
+        ANY MEDICAL CONDITION/ALLERGY: <input type="text" name="medical"><br><br>
+        PHOTO UPLOAD: <input type="file" name="photo"><br><br>
+        UPLOAD BIRTH CERTIFICATE: <input type="file" name="birth_cert"><br><br>
+        UPLOAD TRANSFER CERTIFICATE: <input type="file" name="transfer_cert"><br><br>
+
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
